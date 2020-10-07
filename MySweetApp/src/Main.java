@@ -1,24 +1,24 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) {
 
-        Scanner in = new Scanner(new File("src/test.txt"));
-        List<String> texts = new ArrayList<String>();
+        LinkedList<String> cars = new LinkedList<String>();
+        cars.push("Volvo");
+        cars.push("BMW");
+        cars.push("Ford");
+        cars.push("Mazda");
 
-        while(in.hasNextLine()) {
-            texts.add(in.nextLine());
+        ListIterator<String> it = cars.listIterator();
+        it.next();
+        it.next();
+        it.add("Honda");
+//        while(it.hasNext()) {
+//            System.out.println(it.next());
+//        }
+
+        for(String car : cars) {
+            System.out.println(car);
         }
-
-        for(int i = 0; i < texts.size(); i++) {
-            System.out.println("Line #" + i + ": "+ texts.get(i));
-        }
-        
-        in.close();
-
     }
 }
